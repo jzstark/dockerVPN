@@ -1,5 +1,5 @@
 # dockerVPN
 
-![killer app](./logo/AssasinLogo.png)
+![killer app](./logo/AssassinLogo.png)
 
 Nothing is true; Everything is permitted.
