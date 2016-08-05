@@ -6,6 +6,8 @@ if [ "$#" -ne 1 ]; then
 fi
 # clientname is the parameter
 #Userinput: clientname (not more than 100 in total)
-docker run --volumes-from ovpn-data --rm -it kylemanna/openvpn easyrsa build-client-full $1 nopass
+
+OVPN_DATA=ovpn-data
+docker run --volumes-from $OVPN_DATA --rm -it matrixanger/rpi-ovpn easyrsa build-client-full $1 nopass
 #User Output: OVPN Config
-docker run --volumes-from ovpn-data --rm kylemanna/openvpn ovpn_getclient $1 > $1.ovpn
+docker run --volumes-from $OVPN_DATA --rm matrixanger/rpi-ovpn ovpn_getclient $1 > $1.ovpn
