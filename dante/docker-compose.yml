@@ -1,5 +1,6 @@
 dante:
-  image: vimagick/dante
+  image: matrixanger/rpi-dante
+  name: dante
   ports:
     - "1080:1080"
   volumes:
