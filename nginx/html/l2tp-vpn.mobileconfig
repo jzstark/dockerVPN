@@ -9,7 +9,7 @@
     <key>PayloadType</key>
     <string>Configuration</string>
     <key>PayloadUUID</key>
-    <string>5c226317b146</string>
+    <string>9b3ef240a021</string>
     <key>PayloadVersion</key>
     <integer>1</integer>
     <key>PayloadContent</key>
@@ -24,7 +24,7 @@
             <key>PayloadType</key>
             <string>com.apple.vpn.managed</string>
             <key>PayloadUUID</key>
-            <string>b20bc527-fac5-458c-87ac-e78981f6f5e5</string>
+            <string>89db6e31-630a-4005-82ca-3758d9617ce4</string>
             <key>PayloadVersion</key>
             <real>1</real>
             <key>UserDefinedName</key>
@@ -40,14 +40,14 @@
                 <key>LocalIdentifierType</key>
                 <string>KeyID</string>
                 <key>SharedSecret</key>
-                <data>654321</data>
+                <data>PzeZgzoUVABy6woK</data>
             </dict>
             <key>PPP</key>
             <dict>
                 <key>AuthName</key>
-                <string>Databoxer</string>
+                <string>DataboxVPN</string>
                 <key>AuthPassword</key>
-                <string>123456</string>
+                <string>bnjjXvJWdMaFffof</string>
                 <key>CommRemoteAddress</key>
                 <string>178.62.33.140</string>
             </dict>

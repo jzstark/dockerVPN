@@ -22,3 +22,11 @@ curl -L https://github.com/docker/compose/releases/download/1.6.2/docker-compose
 chmod +x /usr/local/bin/docker-compose
 exit
 docker-compose --version
+
+# Other Dependencies
+if [ $(dpkg-query -W -f='${Status}' python-pip 2>/dev/null | grep -c "ok installed") -eq 0 ];
+then
+  apt-get install python-pip;
+fi
+
+pip install qrcode
