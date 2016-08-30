@@ -1,16 +1,3 @@
-#!/bin/bash
-# require apt-get qrencode
-
-IP=`curl --silent ipecho.net/plain`
-PWD=`openssl rand -base64 16`
-METHOD=aes-256-cfb
-PORT=8388
-LOCAL_PORT=1080
-
-
-# Create Mkdoc source .md file
-
-cat > shadowsocks.md <<EOF
 Shadowsocks
 -----------
 
@@ -35,13 +22,13 @@ Shadowsocks
 **Method 2:**
 
 1. You may also go to *Servers* > *New server* and manually complete the following steps:
-    * Enter \`$IP\` as the *Server IP*.
-    * Enter \`$PORT\` as the *Server Port*.
-    * Enter \`$PWD\` as the *Password*.
-    * The *Local Port* should be \`$LOCAL_PORT\` and the *Encryption Method* should be \`$METHOD\`.
+    * Enter `178.62.33.140` as the *Server IP*.
+    * Enter `8388` as the *Server Port*.
+    * Enter `OpTBYD82WQzm29TZPgfJqA==` as the *Password*.
+    * The *Local Port* should be `1080` and the *Encryption Method* should be `aes-256-cfb`.
     * Click *Save*.
 1. Click on the Shadowsocks menu tray icon and select *Enable*.
-1. That's it! You can verify that your traffic is being routed properly by [looking up your IP address on Google](https://encrypted.google.com/search?hl=en&q=ip%20address). It should say *Your public IP address is $IP*.
+1. That's it! You can verify that your traffic is being routed properly by [looking up your IP address on Google](https://encrypted.google.com/search?hl=en&q=ip%20address). It should say *Your public IP address is 178.62.33.140*.
 
 <a name="osx"></a>
 ### OS X ###
@@ -58,19 +45,19 @@ Shadowsocks
 **Method 2:**
 
 1. You may also configure the connection by going to *Servers*, selecting *Open Server Preferences...*, and clicking the *+* button on the sidebar:
-    1. Enter \`$IP\` and \`$PORT\` in the *Address* fields.
-    1. Make sure \`$METHOD\` is selected for the *Encryption* value.
-    1. Enter \`$PWD\` as the *Password*.
+    1. Enter `178.62.33.140` and `8388` in the *Address* fields.
+    1. Make sure `aes-256-cfb` is selected for the *Encryption* value.
+    1. Enter `OpTBYD82WQzm29TZPgfJqA==` as the *Password*.
     1. Click *OK*.
 1. Click on the Shadowsocks icon in the menu bar again, and choose *Global Mode*.
 1. You can use the Shadowsocks icon to enable/disable the VPN. The color of the icon will change based on whether or not it is active.
-1. That's it! You can verify that your traffic is being routed properly by [looking up your IP address on Google](https://encrypted.google.com/search?hl=en&q=ip%20address). It should say *Your public IP address is $IP*.
+1. That's it! You can verify that your traffic is being routed properly by [looking up your IP address on Google](https://encrypted.google.com/search?hl=en&q=ip%20address). It should say *Your public IP address is 178.62.33.140*.
 
 <a name="linux"></a>
 ### Linux ###
 
 1. Download the latest Shadowsocks [linux clients](https://github.com/shadowsocks/shadowsocks-qt5/wiki/Installation#gnulinux) for different Linux distributions.
-1. From the command line, run \`ss-qt5\`
+1. From the command line, run `ss-qt5`
 1. Click *Connection*, select *Add*, and you can:
     * Make sure the QR code below is centered and completely visible, click on *Scan QR Code on Screnn*
 
@@ -78,10 +65,10 @@ Shadowsocks
     
     * Or Choose *Manually*, then fill in the configuration information as follows:
 
-        * Server: \`$IP\`
-        * Port: \`$PORT\`
-        * Password: \`$PWD\`
-        * Encryption Method: \`$METHOD\`
+        * Server: `178.62.33.140`
+        * Port: `8388`
+        * Password: `OpTBYD82WQzm29TZPgfJqA==`
+        * Encryption Method: `aes-256-cfb`
 
 1. Once you have Shadowsocks running locally, you'll need to forward your browser traffic through the SOCKS proxy it provides.
 
@@ -92,11 +79,11 @@ Shadowsocks
 1. Go to the *Network* tab.
 1. Click the *Settings* button to *Configure how Firefox connects to the Internet*.
 1. Choose *Manual proxy configuration*.
-1. Enter \`127.0.0.1\` and Port \`$LOCAL_PORT\` on the *SOCKS Host* line.
+1. Enter `127.0.0.1` and Port `1080` on the *SOCKS Host* line.
 1. Select *Remote DNS*. This configures Firefox to send all DNS requests through the SOCKS proxy. This will protect you against DNS poisoning and ensure that false DNS entries cannot be used to censor your access.
 1. Click *OK*.
 1. Click *OK* again to close the Firefox preferences window.
-1. You should be good to go! You can verify that your traffic is being routed properly by [looking up your IP address on Google](https://encrypted.google.com/search?hl=en&q=ip%20address). It should say *Your public IP address is $IP*.
+1. You should be good to go! You can verify that your traffic is being routed properly by [looking up your IP address on Google](https://encrypted.google.com/search?hl=en&q=ip%20address). It should say *Your public IP address is 178.62.33.140*.
 
 
 <a name="android"></a>
@@ -112,7 +99,7 @@ Shadowsocks
 
 1. Tap the plane icon on the top.
 1. Accept the Android VPN connection warning.
-1. You can verify that your traffic is being routed properly by [looking up your IP address on Google](https://encrypted.google.com/search?hl=en&q=ip%20address). It should say *Your public IP address is $IP*.
+1. You can verify that your traffic is being routed properly by [looking up your IP address on Google](https://encrypted.google.com/search?hl=en&q=ip%20address). It should say *Your public IP address is 178.62.33.140*.
 
 <a name="ios"></a>
 ### iOS ###
@@ -131,12 +118,4 @@ Unfortunately, support for Shadowsocks on iOS is terminated, and the app on AppS
 1. Tap *Proxy* and select the name of the proxy that you just imported.
 1. Tap the blue *Connect* button.
     * If this is your first time running Potatso, iOS will ask you to verify that the application should have permission to add VPN configurations. Tap *Allow* and follow the instructions.
-1. You can verify that your traffic is being routed properly by [looking up your IP address on Google](https://encrypted.google.com/search?hl=en&q=ip%20address). It should say *Your public IP address is $IP*.
-EOF
-
-# Create QRCode
-qrencode -o shadowsocks-qr-code.png $(echo -n "ss://"`echo -n $METHOD:$PWD@$IP:8388 | base64`)
-# mv shadowsocks-qr-code.png ../nginx/html/shadowsocks/
-
-# Run the container 
-docker run  --name shadowsocks -p $PORT:$PORT -d tommylau/shadowsocks -s 0.0.0.0 -p $PORT -k $PWD -m $METHOD
+1. You can verify that your traffic is being routed properly by [looking up your IP address on Google](https://encrypted.google.com/search?hl=en&q=ip%20address). It should say *Your public IP address is 178.62.33.140*.

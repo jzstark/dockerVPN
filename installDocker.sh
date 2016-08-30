@@ -29,4 +29,5 @@ then
   apt-get install python-pip;
 fi
 
-pip install qrcode
+apt-get install qrencode
+pip install mkdocs
