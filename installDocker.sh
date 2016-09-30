@@ -31,3 +31,15 @@ fi
 
 apt-get install qrencode
 pip install mkdocs
+pip install pymongo
+
+if [ $(dpkg-query -W -f='${Status}' easy_intall 2>/dev/null | grep -c "ok installed") -eq 0 ];
+then
+    sudo apt-get install python-setuptools
+    wget http://peak.telecommunity.com/dist/ez_setup.py
+    sudo python ez_setup.py
+fi
+
+sudo easy_install pyinotify
+sduo apt-get intall apparmor-utils
+aa-complain /usr/sbin/tcpdump
