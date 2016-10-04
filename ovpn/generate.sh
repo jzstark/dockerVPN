@@ -102,6 +102,6 @@ EOF
 
 ## clientname is the parameter
 # docker run --volumes-from ovpn-data --rm -it kylemanna/openvpn easyrsa build-client-full $1 nopass
-docker run --volumes-from ovpn-data --rm -it kylemanna/openvpn easyrsa build-client-full $CLIENT nopass
+docker run -v /root/dockerVPN/ovpn/conf:/etc/openvpn --rm -it kylemanna/openvpn easyrsa build-client-full $CLIENT nopass
 #User Output: OVPN Config
-docker run --volumes-from ovpn-data --rm kylemanna/openvpn ovpn_getclient $CLIENT> $CLIENT.ovpn
+docker run -v /root/dockerVPN/ovpn/conf:/etc/openvpn  --rm kylemanna/openvpn ovpn_getclient $CLIENT> $CLIENT.ovpn
